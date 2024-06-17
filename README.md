@@ -44,10 +44,4 @@ Interface: These represent the basic syntax and blueprint that an entity must ad
 </ol>
 </p>
 </li>
-</ol>
-
-
-
-
-Data types in Typescript ?
-  
+</ol>  
