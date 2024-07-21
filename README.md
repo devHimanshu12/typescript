@@ -26,7 +26,7 @@ Superset basically means everything can be done using typescript which we can do
 There are two types of data types in typescript
 
 <ol><li> <b> Built-in data type </b>
-String: It represents a text value like “GeeksforGeeks”, or “Computer Science”.
+String: It represents a text value like “frontendDevelopment”, or "Angular and React Developer".
 Number: It represents the numbered values i.e. 2, 28, 99, etc.
 Boolean: It stores true or false values.
 Null: An empty value deliberately assigned to a variable.
