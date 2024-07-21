@@ -9,9 +9,7 @@
     <li><a href="#union_types"> What is Union Types in Typescript ?</a></li>
     <li><a href="#inference"> what is inference in Typescript ?</a></li>
     <li><a href="#type_alias"> what is type aliases in Typescript ?</a></li>
-
-
-    <ol>
+ </ol>
     
     <ol >
         <li id="what_is_typescript">
