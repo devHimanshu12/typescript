@@ -4,7 +4,7 @@
 <ol>
     <li><a href="#what_is_typescript"> What is TypeScript ?</a></li>
     <li><a href="#what_typescript_does"> What typescript does ?</a></li>
-    <li><a href="#data_types"> Data types in Typescript ? ?</a></li>
+    <li><a href="#data_types"> Data types in Typescript ?</a></li>
     <li><a href="#noImplicitAny"> what is noImplicitAny in Typescript ?</a></li>
     <li><a href="#union_types"> What is Union Types in Typescript ?</a></li>
     <li><a href="#inference"> what is inference in Typescript ?</a></li>
@@ -92,7 +92,7 @@
                 </span>
             </p>
         </li>
-        <li>
+        <li id="inference">
             <b>inference</b>
             <p>whenever we intialize a variable in typescript, in most cases typescript tries to automatically infer the type in your code.</p>
             <span>example: let name = "Himanshu" // typecript will infer type string for variable name</span>
