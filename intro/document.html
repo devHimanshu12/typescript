@@ -1,14 +1,16 @@
 <ol>
     <li><a href="#what_is_typescript"> What is TypeScript ?</a></li>
     <li><a href="#what_typescript_does"> What typescript does ?</a></li>
-    <li><a href="#data_types"> Data types in Typescript ? ?</a></li>
-    <li><a href="#noImplicitAny"> what is noImplicitAny in Typescript ?</a></li>
+    <li><a href="#data_types"> Data types in Typescript ?</a></li>
+    <li><a href="#noImplicitAny"> What is noImplicitAny in Typescript ?</a></li>
     <li><a href="#union_types"> What is Union Types in Typescript ?</a></li>
-    <li><a href="#inference"> what is inference in Typescript ?</a></li>
-    <li><a href="#type_alias"> what is type aliases in Typescript ?</a></li>
+    <li><a href="#inference"> What is inference in Typescript ?</a></li>
+    <li><a href="#type_alias"> What is type aliases in Typescript ?</a></li>
+    <li><a href="#interface"> What is interface in Typescript ?</a></li>
+    <li><a href="#type_alias_and_interface"> Difference between type aliases and Interface in Typescript ?</a></li>
 </ol>
     
-    <ol >
+<ol>
         <li id="what_is_typescript">
             <h3> What is TypeScript ?</h3>
             <p>Typescript is a superset of javascript language and in other words it is a strongly typed, object oriented, compiled  programming language that is built on javascript.
@@ -76,11 +78,11 @@
             </p>
         </li>
         <li id="noImplicitAny">
-            <b>noImplicitAny</b>
+            <b>What is noImplicitAny in Typescript ?</b>
             <p>when you wan't typescript to throw an error on defautl any type or by inference, we use noImplicitAny to flag any implicit any as an error.</p>
         </li>
         <li id="union_types">
-            <b>Union Types</b>
+            <b>What is Union Types in Typescript ?</b>
             <p>type script allows us to build new types using exiting types by using operators. 
                 <span>
                     example id: number | string
@@ -88,18 +90,130 @@
             </p>
         </li>
         <li id="inference">
-            <b>inference</b>
+            <b>what is inference in Typescript ?</b>
             <p>whenever we intialize a variable in typescript, in most cases typescript tries to automatically infer the type in your code.</p>
             <span>example: let name = "Himanshu" // typecript will infer type string for variable name</span>
         </li>
         <li id="type_alias">
-            <b>Type Aliases</b>
+            <b>What is type aliases in Typescript ?</b>
             <p>when we want create a object type by using existing data types and reuse it. In that case we can use keyword type to create an type.</p>
             <span>example: type area = {
                     length:number;
                     breadth:number;
                 }
             </span>
-
         </li>
-    </ol>  
+        <li id="interface">
+            <b>What is interface in Typescript ?</b>
+            <p>interface declaration is an another way to name an object type</p>
+            <span>example: interface Point {
+                                             x: number;
+                                             y: number;
+                                            }
+                                            function printCoord(pt: Point) {
+                                                console.log("The coordinate's x value is " + pt.x);
+                                                console.log("The coordinate's y value is " + pt.y);
+                                              }                                              
+            </span>
+        </li>
+        <li id="type_alias_and_interface">
+            <b>Difference between type aliases and Interface in Typescript ?</b>
+            <p>Type aliases and interfaces are very similar, and in many cases you can choose between them freely. Almost all features of an interface are available in type, the key distinction is that a type cannot be re-opened to add new properties vs an interface which is always extendable.</p>
+            <span>
+                <b>Adding new fields to an existing interface</b>
+                interface Window {
+                    title: string;
+                  }
+                  
+                  interface Window {
+                    ts: TypeScriptAPI;
+                  }
+
+                  const src = 'const a = "Hello World"';
+                  window.ts.transpileModule(src, {}); 
+            </span>
+            <span>
+                <b>A type cannot be changed after being created</b>
+                type Window = {
+                    title: string;
+                  }
+                  
+                  type Window = {
+                    ts: TypeScriptAPI;
+                  }
+                  
+                  // Error: Duplicate identifier 'Window'.
+            </span>
+            <b>points to remember:</b>
+            <ol>
+                <li>
+                    type aliases can be merged or updated again but interface can
+
+                    // An interface can be re-opened
+                    // and new values added:
+                    interface Mammal {
+                        genus: string
+                    }
+
+                    interface Mammal {
+                        breed?: string
+                    }
+
+                    const animal: Mammal = {
+                        genus: "1234",
+                        // Fails because breed has to be a string
+                        breed: 1
+                    }
+
+                    type Reptile = {
+                        genus: string
+                    }
+
+                    // You cannot add new variables in the same way
+                    type Reptile = {
+                        breed?: string
+                    }
+                </li>
+                <li>
+                    we cannot redeclare primitive type using interface but can be done using type
+                    // Here's two examples of 
+                    // using types and interfaces
+                    // to describe an object 
+
+                    interface AnObject1 {
+                        value: string
+                    }
+
+                    type AnObject2 = {
+                        value: string
+                    }
+
+                    // Using type we can create custom names
+                    // for existing primitives:
+
+                    type SanitizedString = string
+                    type EvenNumber = number
+
+                    // This isn't feasible with interfaces
+                    interface X extends string {
+
+                    }
+                </li>
+                <li>
+                    compiler performance is better with extend in interface when compared to type aliases with intersection.
+                    <b>Reason:</b> 
+                    <p>Interfaces create a single flat object type that detects property conflicts, which are usually important to resolve! Intersections on the other hand just recursively merge properties, and in some cases produce never. Interfaces also display consistently better, whereas type aliases to intersections can't be displayed in part of other intersections. Type relationships between interfaces are also cached, as opposed to intersection types as a whole. A final noteworthy difference is that when checking against a target intersection type, every constituent is checked before checking against the "effective"/"flattened" type.
+                        For this reason, extending types with interfaces/extends is suggested over creating intersection types.</p>
+
+                        - type Foo = Bar & Baz & {
+                            -     someProp: string;
+                            - }
+                            
+                            + interface Foo extends Bar, Baz {
+                            +     someProp: string;
+                            + }
+                </li>
+            </ol>
+           
+        </li>
+</ol>  
