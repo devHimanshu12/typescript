@@ -9,9 +9,9 @@
     <li><a href="#union_types"> What is Union Types in Typescript ?</a></li>
     <li><a href="#inference"> what is inference in Typescript ?</a></li>
     <li><a href="#type_alias"> what is type aliases in Typescript ?</a></li>
- </ol>
+</ol>
     
-    <ol >
+<ol>
         <li id="what_is_typescript">
             <h3> What is TypeScript ?</h3>
             <p>Typescript is a superset of javascript language and in other words it is a strongly typed, object oriented, compiled  programming language that is built on javascript.
@@ -103,6 +103,5 @@
                     breadth:number;
                 }
             </span>
-
         </li>
-    </ol>  
+</ol>  
